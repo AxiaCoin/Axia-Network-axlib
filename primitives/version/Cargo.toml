@@ -1,0 +1,39 @@
+[package]
+name = "sp-version"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Version module for the Axlib runtime; Provides a function that returns the runtime version."
+documentation = "https://docs.rs/sp-version"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+
+[dependencies]
+impl-serde = { version = "0.3.1", optional = true }
+serde = { version = "1.0.126", optional = true, features = ["derive"] }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false, features = ["derive"] }
+scale-info = { git = "https://github.com/axia-tech/scale-info", branch = "v1.0.0", default-features = false, features = ["derive"] }
+sp-std = { version = "4.0.0-dev", default-features = false, path = "../std" }
+sp-runtime = { version = "4.0.0-dev", default-features = false, path = "../runtime" }
+sp-version-proc-macro = { version = "4.0.0-dev", default-features = false, path = "proc-macro" }
+axia-wasm = { git = "https://github.com/axia-tech/axia-wasm", branch = "v0.42.2", version = "0.42.2", optional = true }
+thiserror = { version = "1.0.21", optional = true }
+
+[features]
+default = ["std"]
+std = [
+	"impl-serde",
+	"serde",
+	"codec/std",
+	"scale-info/std",
+	"sp-std/std",
+	"sp-runtime/std",
+	"axia-wasm",
+	"thiserror",
+]

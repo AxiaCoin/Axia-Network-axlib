@@ -1,0 +1,40 @@
+[package]
+name = "pallet-atomic-swap"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "FRAME atomic swap pallet"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false }
+scale-info = { git = "https://github.com/axia-tech/scale-info", branch = "v1.0.0", default-features = false, features = ["derive"] }
+frame-support = { version = "4.0.0-dev", default-features = false, path = "../support" }
+frame-system = { version = "4.0.0-dev", default-features = false, path = "../system" }
+sp-runtime = { version = "4.0.0-dev", default-features = false, path = "../../primitives/runtime" }
+sp-std = { version = "4.0.0-dev", default-features = false, path = "../../primitives/std" }
+sp-io = { version = "4.0.0-dev", default-features = false, path = "../../primitives/io" }
+sp-core = { version = "4.0.0-dev", default-features = false, path = "../../primitives/core" }
+
+[dev-dependencies]
+pallet-balances = { version = "4.0.0-dev", path = "../balances" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"scale-info/std",
+	"frame-support/std",
+	"frame-system/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	"sp-io/std",
+	"sp-core/std",
+]
+try-runtime = ["frame-support/try-runtime"]

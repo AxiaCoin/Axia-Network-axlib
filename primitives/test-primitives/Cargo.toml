@@ -1,0 +1,29 @@
+[package]
+name = "sp-test-primitives"
+version = "2.0.0"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+sp-application-crypto = { version = "4.0.0-dev", default-features = false, path = "../application-crypto" }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false, features = ["derive"] }
+sp-core = { version = "4.0.0-dev", default-features = false, path = "../core" }
+serde = { version = "1.0.126", optional = true, features = ["derive"] }
+sp-runtime = { version = "4.0.0-dev", default-features = false, path = "../runtime" }
+axia-util-mem = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.10.2", default-features = false, features = ["primitive-types"] }
+
+[features]
+default = [
+	"std",
+]
+std = [
+	"sp-application-crypto/std",
+	"serde",
+]

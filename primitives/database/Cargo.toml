@@ -1,0 +1,17 @@
+[package]
+name = "sp-database"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Axlib database trait."
+documentation = "https://docs.rs/sp-database"
+readme = "README.md"
+
+[dependencies]
+parking_lot = "0.11.1"
+kvdb = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.10.0" }
+
+

@@ -1,0 +1,21 @@
+[package]
+name = "axlib-test-utils"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Axlib test utilities"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+futures = "0.3.16"
+axlib-test-utils-derive = { version = "0.10.0-dev", path = "./derive" }
+tokio = { version = "1.10", features = ["macros", "time"] }
+
+[dev-dependencies]
+sc-service = { version = "0.10.0-dev", path = "../client/service" }
+trybuild = { version = "1.0.43", features = [ "diff" ] }

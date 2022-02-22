@@ -1,0 +1,38 @@
+[package]
+name = "sp-timestamp"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Axlib core types and inherents for timestamps."
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+sp-api = { version = "4.0.0-dev", default-features = false, path = "../api" }
+sp-std = { version = "4.0.0-dev", default-features = false, path = "../std" }
+sp-runtime = { version = "4.0.0-dev", default-features = false, path = "../runtime" }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false, features = ["derive"] }
+sp-inherents = { version = "4.0.0-dev", default-features = false, path = "../inherents" }
+thiserror = { version = "1.0.21", optional = true }
+log = { version = "0.4.8", optional = true }
+futures-timer = { version = "3.0.2", optional = true }
+async-trait = { version = "0.1.50", optional = true }
+
+[features]
+default = [ "std" ]
+std = [
+	"sp-api/std",
+	"sp-std/std",
+	"sp-runtime/std",
+	"codec/std",
+	"sp-inherents/std",
+	"thiserror",
+	"log",
+	"futures-timer",
+	"async-trait",
+]

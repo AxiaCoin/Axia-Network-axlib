@@ -1,0 +1,22 @@
+[package]
+name = "sc-state-db"
+version = "0.10.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "State database maintenance. Handles canonicalization and pruning in the database."
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+parking_lot = "0.11.1"
+log = "0.4.11"
+sc-client-api = { version = "4.0.0-dev", path = "../api" }
+sp-core = { version = "4.0.0-dev", path = "../../primitives/core" }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", features = ["derive"] }
+axia-util-mem = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.10.2", default-features = false, features = ["primitive-types"] }
+axia-util-mem-derive = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.1.0" }

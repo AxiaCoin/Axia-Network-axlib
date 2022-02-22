@@ -1,0 +1,18 @@
+[package]
+name = "axlib-test-utils-derive"
+version = "0.10.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Axlib test utilities macros"
+
+[dependencies]
+quote = "1.0.10"
+syn = { version = "1.0.80", features = ["full"] }
+proc-macro-crate = "1.0.0"
+proc-macro2 = "1.0.29"
+
+[lib]
+proc-macro = true

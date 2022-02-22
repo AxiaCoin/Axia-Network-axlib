@@ -1,0 +1,48 @@
+[package]
+name = "sp-trie"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+description = "Patricia trie stuff using a axia-scale-codec node format"
+repository = "https://github.com/axia-tech/axia-core/"
+license = "Apache-2.0"
+edition = "2018"
+homepage = ""
+documentation = "https://docs.rs/sp-trie"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+# [[bench]]
+# name = "bench"
+# harness = false
+
+[dependencies]
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false }
+scale-info = { git = "https://github.com/axia-tech/scale-info", branch = "v1.0.0", default-features = false, features = ["derive"] }
+sp-std = { version = "4.0.0-dev", default-features = false, path = "../std" }
+hash-db = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.15.2", default-features = false }
+trie-db = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.22.6", default-features = false }
+trie-root = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.16.0", default-features = false }
+memory-db = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.27.0", default-features = false }
+sp-core = { version = "4.0.0-dev", default-features = false, path = "../core" }
+
+[dev-dependencies]
+# trie-bench = "0.28.0"
+criterion = "0.3.3"
+hex-literal = "0.3.3"
+sp-runtime = { version = "4.0.0-dev", path = "../runtime" }
+
+[features]
+default = ["std"]
+std = [
+	"sp-std/std",
+	"codec/std",
+	"scale-info/std",
+	"hash-db/std",
+	"memory-db/std",
+	"trie-db/std",
+	"trie-root/std",
+	"sp-core/std",
+]
+memory-tracker = []

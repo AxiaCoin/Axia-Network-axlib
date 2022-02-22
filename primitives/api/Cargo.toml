@@ -1,0 +1,51 @@
+[package]
+name = "sp-api"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Axlib runtime api primitives"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false }
+sp-api-proc-macro = { version = "4.0.0-dev", path = "proc-macro" }
+sp-core = { version = "4.0.0-dev", default-features = false, path = "../core" }
+sp-std = { version = "4.0.0-dev", default-features = false, path = "../std" }
+sp-runtime = { version = "4.0.0-dev", default-features = false, path = "../runtime" }
+sp-version = { version = "4.0.0-dev", default-features = false, path = "../version" }
+sp-state-machine = { version = "0.10.0-dev", optional = true, path = "../state-machine" }
+hash-db = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.15.2", optional = true }
+thiserror = { version = "1.0.21", optional = true }
+
+log = { version = "0.4.14", default-features = false }
+
+[dev-dependencies]
+sp-test-primitives = { version = "2.0.0", path = "../test-primitives" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"sp-core/std",
+	"sp-std/std",
+	"sp-runtime/std",
+	"sp-state-machine",
+	"sp-version/std",
+	"hash-db",
+	"thiserror",
+	"log/std",
+]
+# Special feature to disable logging completly.
+#
+# By default `sp-api` initializes the `RuntimeLogger` for each runtime api function. However,
+# logging functionality increases the code size. It is recommended to enable this feature when
+# building a runtime for registering it on chain.
+#
+# This sets the max logging level to `off` for `log`.
+disable-logging = ["log/max_level_off"]

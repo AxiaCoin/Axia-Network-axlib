@@ -1,0 +1,36 @@
+[package]
+name = "sc-executor-wasmtime"
+version = "0.10.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Defines a `WasmRuntime` that uses the Wasmtime JIT to execute."
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+libc = "0.2.90"
+cfg-if = "1.0"
+log = "0.4.8"
+axia-wasm = { git = "https://github.com/axia-tech/axia-wasm", branch = "v0.42.2", version = "0.42.2" }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1" }
+sc-executor-common = { version = "0.10.0-dev", path = "../common" }
+sp-wasm-interface = { version = "4.0.0-dev", path = "../../../primitives/wasm-interface" }
+sp-runtime-interface = { version = "4.0.0-dev", path = "../../../primitives/runtime-interface" }
+sp-core = { version = "4.0.0-dev", path = "../../../primitives/core" }
+sc-allocator = { version = "4.0.0-dev", path = "../../allocator" }
+wasmtime = { version = "0.30.0", default-features = false, features = [
+    "cache",
+    "cranelift",
+    "jitdump",
+    "parallel-compilation",
+] }
+
+[dev-dependencies]
+sc-runtime-test = { version = "2.0.0", path = "../runtime-test" }
+sp-io = { version = "4.0.0-dev", path = "../../../primitives/io" }
+wat = "1.0"

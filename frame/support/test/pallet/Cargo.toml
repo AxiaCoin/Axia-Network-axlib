@@ -1,0 +1,27 @@
+[package]
+name = "frame-support-test-pallet"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+publish = false
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false, features = ["derive"] }
+scale-info = { git = "https://github.com/axia-tech/scale-info", branch = "v1.0.0", default-features = false, features = ["derive"] }
+frame-support = { version = "4.0.0-dev", default-features = false, path = "../../" }
+frame-system = { version = "4.0.0-dev", default-features = false, path = "../../../system" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"scale-info/std",
+	"frame-support/std",
+	"frame-system/std",
+]

@@ -1,0 +1,27 @@
+[package]
+description = "components for a light client"
+name = "sc-light"
+version = "4.0.0-dev"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+documentation = "https://docs.rs/sc-light"
+readme = "README.md"
+
+[dependencies]
+parking_lot = "0.11.1"
+hash-db = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.15.2" }
+sp-runtime = { version = "4.0.0-dev", path = "../../primitives/runtime" }
+sp-externalities = { version = "0.10.0-dev", path = "../../primitives/externalities" }
+sp-blockchain = { version = "4.0.0-dev", path = "../../primitives/blockchain" }
+sp-core = { version = "4.0.0-dev", path = "../../primitives/core" }
+sp-state-machine = { version = "0.10.0-dev", path = "../../primitives/state-machine" }
+sc-client-api = { version = "4.0.0-dev", path = "../api" }
+sp-api = { version = "4.0.0-dev", path = "../../primitives/api" }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1" }
+sc-executor = { version = "0.10.0-dev", path = "../executor" }
+
+[features]
+default = []

@@ -1,0 +1,29 @@
+[{
+	"project_name": "Networking",
+	"owner": "tomaka",
+	"matrix_room_id": "!vUADSGcyXmxhKLeDsW:matrix.axiacoin.network"
+},
+{	"project_name": "Client",
+	"owner": "gnunicorn",
+	"matrix_room_id": "!aenJixaHcSKbJOWxYk:matrix.axiacoin.network"
+},
+{
+	"project_name": "Runtime",
+	"owner": "gavofyork",
+	"matrix_room_id": "!yBKstWVBkwzUkPslsp:matrix.axiacoin.network"
+},
+{
+	"project_name": "Consensus",
+	"owner": "andresilva",
+	"matrix_room_id": "!XdNWDTfVNFVixljKZU:matrix.axiacoin.network"
+},
+{
+	"project_name": "Smart Contracts",
+	"owner": "pepyakin",
+	"matrix_room_id": "!yBKstWVBkwzUkPslsp:matrix.axiacoin.network"
+},
+{
+	"project_name": "Benchmarking and Weights",
+	"owner": "shawntabrizi",
+	"matrix_room_id": "!pZPWqCRLVtORZTEsEf:matrix.axiacoin.network"
+}]

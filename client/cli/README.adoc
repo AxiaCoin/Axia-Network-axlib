@@ -1,0 +1,6 @@
+
+= Axlib CLI
+
+Axlib CLI library
+
+include::doc/shell-completion.adoc[]

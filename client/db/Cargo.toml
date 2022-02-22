@@ -1,0 +1,49 @@
+[package]
+name = "sc-client-db"
+version = "0.10.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Client backend that uses RocksDB database as storage."
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+parking_lot = "0.11.1"
+log = "0.4.8"
+kvdb = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.10.0" }
+kvdb-rocksdb = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.14.0", optional = true }
+kvdb-memorydb = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.10.0" }
+linked-hash-map = "0.5.4"
+hash-db = { git = "https://github.com/axia-tech/trie", branch = "master", version = "0.15.2" }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", features = [
+    "derive",
+] }
+
+sc-client-api = { version = "4.0.0-dev", path = "../api" }
+sp-arithmetic = { version = "4.0.0-dev", path = "../../primitives/arithmetic" }
+sp-core = { version = "4.0.0-dev", path = "../../primitives/core" }
+sp-runtime = { version = "4.0.0-dev", path = "../../primitives/runtime" }
+sp-state-machine = { version = "0.10.0-dev", path = "../../primitives/state-machine" }
+sc-state-db = { version = "0.10.0-dev", path = "../state-db" }
+sp-trie = { version = "4.0.0-dev", path = "../../primitives/trie" }
+sp-blockchain = { version = "4.0.0-dev", path = "../../primitives/blockchain" }
+sp-database = { version = "4.0.0-dev", path = "../../primitives/database" }
+axia-db = { git = "https://github.com/axia-tech/axia-db", version = "0.3.5", optional = true }
+
+[dev-dependencies]
+sp-tracing = { version = "4.0.0-dev", path = "../../primitives/tracing" }
+axlib-test-runtime-client = { version = "2.0.0", path = "../../test-utils/runtime/client" }
+quickcheck = "1.0.3"
+kvdb-rocksdb = { git = "https://github.com/axia-tech/axia-common", branch = "master", version = "0.14.0" }
+tempfile = "3"
+
+[features]
+default = []
+test-helpers = []
+with-kvdb-rocksdb = ["kvdb-rocksdb"]
+with-axia-db = ["axia-db"]

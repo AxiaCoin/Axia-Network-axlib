@@ -1,0 +1,25 @@
+[package]
+name = "sc-rpc-server"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Axlib RPC servers."
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+futures = "0.3.16"
+jsonrpc-core = { git = "https://github.com/axia-tech/jsonrpc", branch = "master", version = "18.0.0" }
+pubsub = { git = "https://github.com/axia-tech/jsonrpc", branch = "master", package = "jsonrpc-pubsub", version = "18.0.0" }
+log = "0.4.8"
+prometheus-endpoint = { package = "axlib-prometheus-endpoint", path = "../../utils/prometheus", version = "0.9.0"}
+serde_json = "1.0.68"
+tokio = "1.10"
+http = { git = "https://github.com/axia-tech/jsonrpc", branch = "master", package = "jsonrpc-http-server", version = "18.0.0" }
+ipc = { git = "https://github.com/axia-tech/jsonrpc", branch = "master", package = "jsonrpc-ipc-server", version = "18.0.0" }
+ws = { git = "https://github.com/axia-tech/jsonrpc", branch = "master", package = "jsonrpc-ws-server", version = "18.0.0" }

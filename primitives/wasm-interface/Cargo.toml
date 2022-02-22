@@ -1,0 +1,24 @@
+[package]
+name = "sp-wasm-interface"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Types and traits for interfacing between the host and the wasm runtime."
+documentation = "https://docs.rs/sp-wasm-interface"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+wasmi = { git = "https://github.com/axia-tech/wasmi", branch = "v0.9.1", version = "0.9.1", optional = true }
+impl-trait-for-tuples = "0.2.1"
+sp-std = { version = "4.0.0-dev", path = "../std", default-features = false }
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1", default-features = false, features = ["derive"] }
+
+[features]
+default = [ "std" ]
+std = [ "wasmi", "sp-std/std", "codec/std" ]

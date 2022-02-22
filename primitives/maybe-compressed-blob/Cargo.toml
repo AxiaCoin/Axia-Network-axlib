@@ -1,0 +1,14 @@
+[package]
+name = "sp-maybe-compressed-blob"
+version = "4.0.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "Handling of blobs, usually Wasm code, which may be compresed"
+documentation = "https://docs.rs/sp-maybe-compressed-blob"
+readme = "README.md"
+
+[dependencies]
+zstd = { version = "0.9.0", default-features = false }

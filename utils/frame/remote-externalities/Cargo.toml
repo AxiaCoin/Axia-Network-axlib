@@ -1,0 +1,37 @@
+[package]
+name = "remote-externalities"
+version = "0.10.0-dev"
+authors = ["AXIA Technologies <admin@axiacoin.network>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/axia-tech/axia-core/"
+description = "An externalities provided environemnt that can load itself from remote nodes or cache files"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+jsonrpsee-ws-client = { version = "0.3.1", default-features = false, features = [
+    "tokio1",
+]}
+jsonrpsee-proc-macros = "0.3.1"
+
+env_logger = "0.9"
+log = "0.4.11"
+codec = { git = "https://github.com/axia-tech/axia-scale-codec", package = "axia-scale-codec", branch = "v2.3.1" }
+serde_json = "1.0"
+serde = "1.0.126"
+
+sp-io = { version = "4.0.0-dev", path = "../../../primitives/io" }
+sp-core = { version = "4.0.0-dev", path = "../../../primitives/core" }
+sp-runtime = { version = "4.0.0-dev", path = "../../../primitives/runtime" }
+sp-version = { version = "4.0.0-dev", path = "../../../primitives/version" }
+
+[dev-dependencies]
+tokio = { version = "1.10", features = ["macros", "rt-multi-thread"] }
+pallet-elections-phragmen = { path = "../../../frame/elections-phragmen", version = "5.0.0-dev" }
+
+[features]
+remote-test = []
