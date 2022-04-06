@@ -25,6 +25,5 @@ rls*.log
 *.bin
 *.iml
 .maintain/node-template-release/Cargo.lock
-res/
 cmd/
 builds/
